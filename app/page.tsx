@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { AuthButton } from '@/components/AuthButton'
 import { TestVideoPlayer } from '@/components/TestVideoPlayer'
+import { AnimatedBackground } from '@/components/AnimatedBackground'
 
 export default function Home() {
   const features = [
@@ -151,28 +152,7 @@ export default function Home() {
         {/* Background gradient overlay - matching page theme */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-transparent to-gray-800/20"></div>
         {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-32 h-32 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-xl"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                x: [0, 50, 0],
-                y: [0, -30, 0],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 8 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>{' '}
+        <AnimatedBackground />
         <div className="container mx-auto relative z-10">
           <motion.div
             className="relative"

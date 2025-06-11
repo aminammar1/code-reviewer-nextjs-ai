@@ -15,6 +15,7 @@ import {
   ThumbsDown,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { ClientDate } from './ClientDate'
 
 interface ReviewPanelProps {
   review: CodeReview | null
@@ -200,7 +201,6 @@ export function ReviewPanel({
             />
           </div>
         </div>
-
         {/* Summary */}
         <div className="glass-card p-4">
           <h4 className="text-white font-medium mb-2">Summary</h4>
@@ -208,7 +208,6 @@ export function ReviewPanel({
             {review.summary}
           </p>
         </div>
-
         {/* Issues */}
         {review.issues.length > 0 && (
           <div className="space-y-3">
@@ -253,7 +252,6 @@ export function ReviewPanel({
             </div>
           </div>
         )}
-
         {/* Suggestions */}
         {review.suggestions.length > 0 && (
           <div className="space-y-3">
@@ -357,11 +355,10 @@ export function ReviewPanel({
               ))}
             </div>
           </div>
-        )}
-
+        )}{' '}
         {/* Footer */}
         <div className="text-xs text-white/40 text-center pt-4 border-t border-white/10">
-          Review generated at {new Date(review.timestamp).toLocaleString()}
+          Review generated at <ClientDate timestamp={review.timestamp} />
         </div>
       </div>
     </div>
